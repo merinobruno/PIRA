@@ -1,0 +1,71 @@
+<br>
+<div class="card" style="height: 12rem; width: 25rem;">
+    <img src="..." class="card-img-top" alt="">
+    <div class="card-body" style="margin-bottom:auto">
+        <h5 class="card-title" style="text-align: center;">Buscador de Clientes Morosos</h5>
+        <br>
+        DNI
+        <form class="d-flex" (submit)="inputEditor()">
+            <input class="form-control me-2" type="text" [formControl]="input">
+            <button (click)="boolean ? toggleShowF() : toggleShow(); toggleShow3()"  type="submit" class="btn btn-outline-success">Buscar</button>
+          </form>
+    </div>
+</div>
+
+<div *ngIf="mostrar2">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">DNI</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+        <th scope="col">Dirección</th>
+        <th scope="col">Teléfono</th>
+        <th scope="col">Correo</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let clientes of cliente">
+      <tr>
+        <th>{{clientes.dni}}</th>
+        <th>{{clientes.nombre}}</th>
+        <th>{{clientes.apellido}}</th>
+        <th>{{clientes.direccion}}</th>
+        <th>{{clientes.telefono}}</th>
+        <th>{{clientes.correo}}</th>
+        <th><button class="btn btn-primary" [routerLink]="['/cliente/edit', clientes.id_cliente]">Editar</button></th>
+      </tr>
+    </tbody>
+  </table>
+  <hr style="border: dashed;">
+</div>
+
+
+<div *ngIf="mostrar">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Nombre Completo</th>
+        <th scope="col">Comercio</th>
+        <th scope="col">Dirección</th>
+        <th scope="col">Teléfono</th>
+        <th scope="col">Fecha de Inicio</th>
+        <th scope="col">Monto</th>
+        <th scope="col">Estado</th>
+        <th scope="col">Fecha de Pago</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let deudas of deuda">
+      <tr>
+        <th><a style="text-decoration: underline;" (click)="toggleShow2()" (click)="getCliente(deudas.id_cliente)">{{deudas.nombre}} {{deudas.apellido}}</a></th>
+        <th>{{deudas.nombre_prestamista}}</th>
+        <th>{{deudas.direccion}}</th>
+        <th>{{deudas.telefono}}</th>
+        <th>{{deudas.fecha_Inicio | date: 'dd/MMM/yyyy'}}</th>
+        <th>${{deudas.monto}}</th>
+        <th>{{deudas.estado ? 'Pagado' : 'Pendiente'}}</th>
+        <th *ngIf="deudas.estado == true">{{deudas.fecha_Fin | date: 'dd/MMM/yyyy'}}</th>
+        <br><br>
+      </tr>
+    </tbody>
+  </table>
+  </div>

@@ -1,0 +1,38 @@
+<div class="col-md-4 offset-md-2">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title" style="text-align: center;">Alta de Comercios</h5>
+            <br>
+            <form>
+                <div class="form-group">
+                    <input type="text" name="nombre" [(ngModel)]="prestamista.nombre_prestamista" placeholder="Nombre del Comercio" class="form-control" autofocus>
+                </div>
+                <br>
+                <div class="form-group">
+                    <input type="number" name="cuil" [(ngModel)]="prestamista.cuil" placeholder="CUIL/CUIT (Sólo números)" class="form-control" autofocus>
+                </div>
+                <br>
+                <button class="btn btn-success btn-lg w-100" (click)="edit ? updatePrestamista() : saveNewPrestamista()">
+                    <b>Alta</b>
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+<br><br>
+<div>
+    <table class="table">
+      <thead>
+        <tr>
+            <th scope="col">Nombre</th>
+          <th scope="col">Cuil/Cuit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>{{prestamista.nombre_prestamista}}</th>
+          <th>{{prestamista.cuil}}</th>
+        </tr>
+      </tbody>
+    </table>
+    </div>

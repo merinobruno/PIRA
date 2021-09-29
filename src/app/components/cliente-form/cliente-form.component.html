@@ -1,0 +1,61 @@
+<div class="col-md-4 offset-md-2">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title" style="text-align: center;">{{header}}</h5>
+            <br>
+            <form>
+                <div class="form-group">
+                    <input type="text" name="nombre" [(ngModel)]="cliente.nombre" placeholder="Nombre" class="form-control" autofocus>
+                </div>
+                <br>
+                <div class="form-group">
+                    <input type="text" name="apellido" [(ngModel)]="cliente.apellido" placeholder="Apellido" class="form-control" autofocus>
+                </div>
+                <br>
+                <div class="form-group">
+                    <input type="number" name="DNI" [(ngModel)]="cliente.dni" placeholder="DNI" class="form-control" autofocus>
+                </div>
+                <br>
+                <div class="form-group">
+                    <input type="text" name="direccion" [(ngModel)]="cliente.direccion" placeholder="Dirección" class="form-control" autofocus>
+                </div>
+                <br>
+                <div class="form-group">
+                    <input type="text" name="telefono" [(ngModel)]="cliente.telefono" placeholder="Teléfono" class="form-control" autofocus>
+                </div>
+                <br>
+                <div class="form-group">
+                    <textarea type="text" name="email" [(ngModel)]="cliente.correo" placeholder="Correo" class="form-control" autofocus></textarea>
+                </div><br>
+                <button class="btn btn-success btn-lg w-100" (click)="edit ? updateCliente() : saveNewCliente()">
+                    <b>{{button}}</b>
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+<br><br>
+<div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">DNI</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Apellido</th>
+          <th scope="col">Dirección</th>
+          <th scope="col">Teléfono</th>
+          <th scope="col">Correo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>{{cliente.dni}}</th>
+          <th>{{cliente.nombre}}</th>
+          <th>{{cliente.apellido}}</th>
+          <th>{{cliente.direccion}}</th>
+          <th>{{cliente.telefono}}</th>
+          <th>{{cliente.correo}}</th>
+        </tr>
+      </tbody>
+    </table>
+    </div>
